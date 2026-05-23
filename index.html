@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Improvement Services | Verified Local Experts</title>
+    <style>
+        /* Base Reset & Design Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --primary-blue: #0056b3;
+            --dark-blue: #002d62;
+            --light-blue: #e6f0fa;
+            --accent-orange: #ff6f00;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --gray-bg: #f4f7fa;
+            --border-color: #cccccc;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--text-light);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+        .logo span {
+            color: #33b5e5;
+        }
+        .cta-btn {
+            background-color: var(--accent-orange);
+            color: var(--text-light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .cta-btn:hover {
+            background-color: #e06200;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 45, 98, 0.85), rgba(0, 86, 179, 0.85)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Main Content Container Layout */
+        .main-container {
+            display: block;
+            padding: 4rem 5%;
+            background-color: var(--gray-bg);
+        }
+
+        /* Services Grid Section */
+        .services-section {
+            padding: 0 0 4rem 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--text-light);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,86,179,0.1);
+        }
+        .service-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .card-btn {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .card-btn:hover {
+            color: var(--dark-blue);
+        }
+
+        /* Contact Form Container styling */
+        .form-section {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--accent-orange);
+            max-width: 650px;
+            margin: 2rem auto 0 auto;
+        }
+        .form-section h2 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        .form-section p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-blue);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        select.form-control {
+            background-color: #fff;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 0.5rem;
+        }
+        .submit-btn:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        footer p a {
+            color: #33b5e5;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Home <span>Improvement Services</span></div>
+            <a href="#quote-form" class="cta-btn">Get Free Quote</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>All-In-One Home Improvement Services</h1>
+        <p>Your trusted, verified pros for every repair, installation, maintenance, and clean-up project in the USA.</p>
+        <a href="#quote-form" class="cta-btn">Request Service Online</a>
+    </section>
+
+    <div class="main-container">
+        
+        <section class="services-section">
+            <h2 class="section-title">Our Professional Services</h2>
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <h3>Plumbing Services</h3>
+                    <p>Expert leak detection, pipe repairs, drain cleaning, and emergency plumbing solutions available 24/7.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Plumbing'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Appliance Repair</h3>
+                    <p>Fast diagnostic and repair services for refrigerators, washers, dryers, ovens, and major kitchen systems.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Appliance Repair'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Roofing Repair & Install</h3>
+                    <p>Professional roof inspections, leak patching, shingle replacement, and full system roof installations.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Roofing'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Gutter Services</h3>
+                    <p>Seamless gutter installation, seasonal cleaning, downspout adjustments, and protective guard systems.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Gutters'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Windows Installation</h3>
+                    <p>Energy-efficient window replacements and custom installations built to withstand severe weather conditions.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Windows Installation'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Garage Door Services</h3>
+                    <p>Spring repairs, tracking calibration, new opener installations, and security panel replacements.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Garage Door'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Locksmith Services</h3>
+                    <p>Emergency lockouts, smart lock installations, commercial master rekeying, and residential deadbolt updates.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Locksmith'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Pest Control</h3>
+                    <p>Safe and effective barrier treatments against termites, rodents, ants, bed bugs, and seasonal insects.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Pest Control'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>HVAC Maintenance</h3>
+                    <p>Complete heating and cooling solutions, AC tuning, furnace repair, and indoor air quality system management.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='HVAC'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Flooring Installation</h3>
+                    <p>Premium installation services for hardwood, luxury vinyl plank (LVP), laminate, tile, and high-traffic carpeting.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Flooring'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Chimney Cleaning</h3>
+                    <p>Creosote removal, safety inspections, chimney caps, and drafting repairs to keep your home warm and secure.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Chimney Cleaning'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Painting Services</h3>
+                    <p>Flawless interior and exterior painting, drywall prep, trim work, and high-durability protective coatings.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Painting'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Electrical Repair</h3>
+                    <p>Panel upgrades, lighting fixtures, troubleshooting short circuits, and certified rewiring projects.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Electrician'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>House Cleaning</h3>
+                    <p>Instant online booking for premium, meticulous deep cleans, recurring maid service, or move-out cleanups.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='House Cleaning'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Bathroom Remodeling</h3>
+                    <p>Complete dynamic updates, tub-to-shower conversions, modern tile layouts, vanity upgrades, and fixtures.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Bathroom Remodeling'">Book Service &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Local Moving Experts</h3>
+                    <p>Stress-free loading, secure packing services, safe transit, and local residential and commercial relocations.</p>
+                    <a href="#quote-form" class="card-btn" onclick="document.getElementById('service').value='Local Moving'">Book Service &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="quote-form" class="form-section">
+            <h2>Get a Free Estimate</h2>
+            <p>Fill out this short form, and we will get back to you via email with an estimate instantly.</p>
+            
+            <form action="https://formspree.io/f/xoqgkyrj" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="johndoe@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">US Zip Code</label>
+                    <input type="text" id="zip" name="zip_code" class="form-control" placeholder="10001" pattern="[0-9]{5}" title="Please enter a valid 5-digit US ZIP code" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service_requested" class="form-control" required>
+                        <option value="" disabled selected>-- Select a Service --</option>
+                        <option value="Plumbing">Plumbing Services</option>
+                        <option value="Appliance Repair">Appliance Repair</option>
+                        <option value="Roofing">Roofing Repair & Install</option>
+                        <option value="Gutters">Gutter Services</option>
+                        <option value="Windows Installation">Windows Installation</option>
+                        <option value="Garage Door">Garage Door Services</option>
+                        <option value="Locksmith">Locksmith Services</option>
+                        <option value="Pest Control">Pest Control</option>
+                        <option value="HVAC">HVAC Maintenance</option>
+                        <option value="Flooring">Flooring Installation</option>
+                        <option value="Chimney Cleaning">Chimney Cleaning</option>
+                        <option value="Painting">Painting Services</option>
+                        <option value="Electrician">Electrical Repair</option>
+                        <option value="House Cleaning">House Cleaning</option>
+                        <option value="Bathroom Remodeling">Bathroom Remodeling</option>
+                        <option value="Local Moving">Local Moving Experts</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details / Message</label>
+                    <textarea id="message" name="project_details" class="form-control" rows="4" placeholder="Describe your issue or project requirements here..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Home Improvement Services. All rights reserved. Contact: <a href="mailto:aleemjutt7474@gmail.com">aleemjutt7474@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
